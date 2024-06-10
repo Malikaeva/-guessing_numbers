@@ -27,24 +27,16 @@ def guessing_game():
             break
 
 
-# проверка на дурака
+# реализовать проверку на дурака is_valid()
 def is_valid(baka):
-    abc = "abcdefghijklmnopqrstuvwxyz йцукенгшщзхфывапролджэячсмитьбю"
-
-    flag = True
-
-    for i in range(len(abc)):
-        if abc[i] in baka:
-            flag = False
-            return flag
-
-    if int(baka) < 1 or int(baka) > 100:
-        flag = False
-
-    return flag
-
-    # if int(num) > 100 or int(num) < 1: может сделать отдельной функцией
-    # реализовать проверку на дурака is_valid()
+    if baka.isdigit():
+        baka = int(baka)
+        if 1 <= baka <= 100:
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 # повтор игры
