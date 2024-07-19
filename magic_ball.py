@@ -10,7 +10,6 @@ answers = ['Бесспорно', 'Предрешено', 'Никаких сом�
 def choice(answers):
     input('Введите ваш вопрос: ')
     print(random.choice(answers))
-    pass
 
 # Повтор игры
 def restart():
