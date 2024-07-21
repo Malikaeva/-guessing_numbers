@@ -14,7 +14,6 @@ def guessing_game():
             print('А может быть все-таки введем целое число от 1 до 100? (T-T)')
             num = input()
             cnt += 1
-
         if hid_number > int(num):
             print('Слишком мало, попробуйте еще раз')
             cnt += 1

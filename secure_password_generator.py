@@ -18,6 +18,7 @@ def is_valid(baka):
             baka = input('Повторите ввод числа: ')
 
 
+
 # Проверка да или нет
 def is_valid_yes_no(baka):
     while True or False:
