@@ -13,7 +13,7 @@ char = ''
 def is_valid(baka):
     while True:
         if baka.isdigit() and int(baka) > 0:
-            return True
+            return int(baka)
         else:
             baka = input('Повторите ввод числа: ')
 
@@ -27,10 +27,18 @@ def is_valid_yes_no(baka):
             return False
         else:
             baka = input('Напишите да / нет: ')
+        # Вариант через case
+        # match baka.lower():
+        #     case 'да':
+        #         return True
+        #     case 'нет':
+        #         return False
+        #     case _:
+        #         baka = input('Напишите да / нет: ')
 
 
-count_password = int(is_valid(input('Укажите количество паролей для генерации: ')))
-len_password = int(is_valid(input('Укажите длину пароля: ')))
+count_password = is_valid(input('Укажите количество паролей для генерации: '))
+len_password = is_valid(input('Укажите длину пароля: '))
 digits_password = is_valid_yes_no(input(f'Включать ли цифры {digits}? '))
 upper_password = is_valid_yes_no(input(f'Включать ли прописные буквы {uppercase_letters}? '))
 lower_password = is_valid_yes_no(input(f'Включать ли строчные буквы {lowercase_letters}? '))
@@ -40,28 +48,28 @@ ambiguous_characters_pass = is_valid_yes_no(input(f'Исключить неод�
 list_1 = [digits, uppercase_letters, lowercase_letters, punctuation, ambiguous_characters]
 list_2 = [digits_password, upper_password, lower_password, punctuation_pass, ambiguous_characters_pass]
 
-for i in range(len(list_2)):
+for i in range(len(list_2) - 1):
     if list_2[i]:
         char += list_1[i]
 
-# if digits_password:
-#     char += digits
-# if upper_password:
-#     char += uppercase_letters
-# if lower_password:
-#     char += lowercase_letters
-# if punctuation_pass:
-#     char += punctuation
+
+# if ambiguous_characters_pass:
+#     for ambiguous_characters in char:
+#
+# print(char)
 
 
 def generate_password(length, chars):
     password = ''
-    for j in range(length):
+    while len(password) == length:
         password += random.choice(chars)
+        if ambiguous_characters_pass:
+            if password[-1] in ambiguous_characters:
+                password = password[:-1]
     return password
 
 
 print(generate_password(len_password, char))
 
 # for _ in range(count_password):
-#     print(generate_password(len_password, char))
+#    print(generate_password(len_password, char))
