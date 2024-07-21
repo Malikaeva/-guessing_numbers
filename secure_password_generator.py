@@ -18,7 +18,6 @@ def is_valid(baka):
             baka = input('Повторите ввод числа: ')
 
 
-
 # Проверка да или нет
 def is_valid_yes_no(baka):
     while True or False:
@@ -54,23 +53,16 @@ for i in range(len(list_2) - 1):
         char += list_1[i]
 
 
-# if ambiguous_characters_pass:
-#     for ambiguous_characters in char:
-#
-# print(char)
-
-
 def generate_password(length, chars):
     password = ''
-    while len(password) == length:
+    while True:
         password += random.choice(chars)
         if ambiguous_characters_pass:
             if password[-1] in ambiguous_characters:
                 password = password[:-1]
-    return password
+        if len(password) == length:
+            return password
 
 
-print(generate_password(len_password, char))
-
-# for _ in range(count_password):
-#    print(generate_password(len_password, char))
+for r in range(1, count_password + 1):
+    print(f'{r}: {generate_password(len_password, char)}')
